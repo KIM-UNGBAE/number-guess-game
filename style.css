@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+body{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Rubik Mono One', sans-serif;
+    background: url(./images/bg.jpg) no-repeat center/cover;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    line-height: 1;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+    max-width: 800px;
+    height: 60%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.5);
+    border: 3px solid #fff;
+}
+
+.headline{
+    font-size: 36px;
+    color: #00ffff;
+}
+
+#result-area, #chance-area{
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+#answer-area{
+    font-size: 12px;
+}
+
+#user-input{
+    background-color: #1a1a40;
+    color: #00ffff;
+    border: 2px solid #9400d3; 
+    font-size: 18px;
+    padding: 5px;
+    text-align: center;
+}
+
+.btn-area{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.btn-area button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    background: linear-gradient(180deg, #a020f0, #7400b8);
+    color: #fff;
+    border: 2px solid #6a00a3;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.btn-area button:hover {
+    background: linear-gradient(180deg, #7400b8, #a020f0);
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+.btn-area button:disabled {
+    background: #cccccc;
+    color: #999999;
+    cursor: not-allowed;
+    border: 2px solid #aaaaaa;
+}
+
+@media (max-width: 1025px) {
+    .container{
+        width: 70%;
+        height: 50%;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .headline{
+        font-size: 20px;
+    }
+
+    #result-area, #chance-area{
+        font-size: 16px;
+    }
+
+    #user-input{
+        font-size: 12px;
+    }
+
+    .btn-area button{
+        font-size: 12px;
+        padding: 10px;
+        width: 60px;
+        height: 30px;
+    }
+}

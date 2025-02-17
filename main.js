@@ -7,6 +7,7 @@
 // 3번의 기회를 다쓰면 게임이 끝난다 (더이상 추측 불가, 버튼이 disable)
 // 유저가 1~100 범위 밖에 숫자를 입력하면 알려준다. 기회를 깍지 않는다
 // 유저가 이미 입력한 숫자를 또 입력하면, 알려준다, 기회를 깍지 않는다
+// 정답을 미리 공개한다
 
 
 let computerNum = 0;
@@ -17,6 +18,7 @@ let resetButton = document.getElementById("reset-button");
 let chances = 3;
 let gameOver = false;
 let chanceArea = document.getElementById("chance-area");
+let answerArea = document.getElementById("answer-area");
 let history = []
 
 // click 이벤트
@@ -24,12 +26,15 @@ playButton.addEventListener("click", play); //함수가 매개변수로서 들�
 resetButton.addEventListener("click", reset);
 userInput.addEventListener("focus", function(){userInput.value = ""});
 
+
 function pickRandomNum(){
     // Math.random -> 랜덤한 숫자를 뽑을 수 있게 도와주는 함수, 0~1까지 근접한 숫자를 반환(이때 1은 포함이 안돼는 1에 가까운 숫자를 반환)
     // Math.floor -> 소수점 자리를 없애준다
     computerNum = Math.floor(Math.random() * 100) + 1;
     console.log("정답", computerNum);
-    
+
+    // 정답 공개
+    document.getElementById("answer-area").textContent = `정답: ${computerNum}`;
 };
 
 function play(){
@@ -79,13 +84,21 @@ function play(){
 }
 
 // 리셋
-function reset(){
+function reset() {
     // user input창이 깨끗하게 정리되고
-    userInput.value="";
-    //  새로운 번호가 생성되고
+    userInput.value = "";
+    // 새로운 번호가 생성되고
     pickRandomNum();
-
+    // 결과 메시지 초기화
     resultArea.textContent = "결과값이 여기 나옵니다.";
+    // 남은 찬스 초기화
+    chances = 3;
+    chanceArea.textContent = `남은기회: ${chances}번`;
+    // 게임 상태 초기화
+    gameOver = false;
+    playButton.disabled = false; // 버튼 다시 활성화
+    // 입력한 숫자 기록 초기화
+    history = [];
 }
 
 pickRandomNum();
