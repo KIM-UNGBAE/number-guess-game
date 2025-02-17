@@ -34,7 +34,11 @@ body{
     color: #00ffff;
 }
 
-#result-area, #chance-area{
+#result-area{
+    font-size: 28px;
+}
+
+#chance-area{
     font-size: 22px;
     margin: 10px 0;
 }
@@ -101,8 +105,12 @@ body{
         font-size: 20px;
     }
 
-    #result-area, #chance-area{
+    #result-area{
         font-size: 16px;
+    }
+
+    #chance-area{
+        font-size: 14px;
     }
 
     #user-input{
